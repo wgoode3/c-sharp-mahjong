@@ -5,25 +5,34 @@ namespace Mahjong.Models
 {
     public class Set
     {
-        // TODO - should this be public?
-        public List<Tile> Tiles = new List<Tile>();
+        private List<Tile> Tiles = new List<Tile>();
 
         public Set() 
         {
 
-            string[] classes = new string[]{"Bamboo", "Pins", "Characters"};
-            string[] values = new string[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-            string[] winds = new string[]{"East", "South", "West", "North"};
+            // winds:      🀀 🀁 🀂 🀃 
+            // dragons:    🀄 🀅 🀆 
+            // characters: 🀇 🀈 🀉 🀊 🀋 🀌 🀍 🀎 🀏 
+            // bamboo:     🀐 🀑 🀒 🀓 🀔 🀕 🀖 🀗 🀘 
+            // pin:        🀙 🀚 🀛 🀜 🀝 🀞 🀟 🀠 🀡 
+
+            // 索子  筒子  萬子
+            string[] suits   = new string[]{"Bamboo", "Pins", "Characters"};
+            // 一 二 三 四 五 六 七 八 九
+            string[] values  = new string[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+            // 東 南 西 北
+            string[] winds   = new string[]{"East", "South", "West", "North"};
+            // 中 發 白   
             string[] dragons = new string[]{"Red", "Green", "White"};
 
-            foreach(string _class in classes)
+            foreach(string suit in suits)
             {
                 foreach(string val in values)
                 {
-                    Tiles.Add(new Tile(_class, val, false));
-                    Tiles.Add(new Tile(_class, val, false));
-                    Tiles.Add(new Tile(_class, val, false));
-                    Tiles.Add(new Tile(_class, val, false));
+                    Tiles.Add(new Tile(suit, val, false));
+                    Tiles.Add(new Tile(suit, val, false));
+                    Tiles.Add(new Tile(suit, val, false));
+                    Tiles.Add(new Tile(suit, val, false));
                 }
             }
 
